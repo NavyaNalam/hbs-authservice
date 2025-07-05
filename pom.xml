@@ -8,9 +8,9 @@
         <version>3.3.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.egov</groupId>
-    <artifactId>hbs-authservice</artifactId>
-    <version>dev-1</version>
+    <groupId>com.navya</groupId>
+    <artifactId>authservice</artifactId>
+    <version>prod</version>
     <name>auth-service</name>
     <description>auth-service</description>
     <url/>
