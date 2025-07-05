@@ -1,0 +1,13 @@
+com\navya\authservice\AuthServiceApplication.class
+com\navya\authservice\RequestIdExtractor.class
+com\navya\authservice\Credential.class
+com\navya\authservice\CredentialRepository.class
+com\navya\authservice\MainRestController.class
+com\navya\authservice\Token.class
+com\navya\authservice\CredentialLoginView.class
+com\navya\authservice\RedisConfig.class
+com\navya\authservice\Producer.class
+com\navya\authservice\AppConfig.class
+com\navya\authservice\TokenRepository.class
+com\navya\authservice\JwtUtil.class
+com\navya\authservice\LoggingWebClientFilter.class
