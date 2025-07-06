@@ -11,7 +11,7 @@ import java.util.Map;
 @Component
 public class JwtUtil {
     private final String jwtSecret = "your-256-bit-secret-your-256-bit-secret"; // Use at least 256 bits
-    private final long jwtExpirationMs = 3600*1000; // 1 hour in milliseconds
+    //private final long jwtExpirationMs = 3600*1000; // 1 hour in milliseconds
 
     private Key getSigningKey() {
         return Keys.hmacShaKeyFor(jwtSecret.getBytes());
@@ -32,6 +32,15 @@ public class JwtUtil {
                 .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
+    }
+
+    public boolean validateToken(String token) {
+        try {
+            Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token);
+            return true;
+        } catch (JwtException | IllegalArgumentException e) {
+            return false;
+        }
     }
 
 /*    public boolean validateToken(String token) {

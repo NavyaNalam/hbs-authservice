@@ -13,5 +13,5 @@ public class Credential
     @Id
     String phone;
     String password;
-    String type; // USER, ADMIN
+    String type; // GUEST, ADMIN
 }

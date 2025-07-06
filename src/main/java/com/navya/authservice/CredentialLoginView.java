@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class CredentialLoginView
 {
+    Long userId;
     String phone;
     String password;
 }
