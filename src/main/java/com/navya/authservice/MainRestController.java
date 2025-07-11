@@ -140,4 +140,27 @@ public class MainRestController
         }
     }
 
+    @GetMapping("getrole/{token}")
+    public ResponseEntity<?> getRoleFromToken(@PathVariable("token") String tokenValue)
+    {
+        Optional<Token> tokenFound =  tokenRepository.findById(tokenValue);
+        if(tokenFound.isPresent())
+        {
+            String phone = tokenFound.get().getPhone();
+            Optional<Credential> credential = Optional.ofNullable(credentialRepository.findByPhone(phone));
+            if(credential.isPresent())
+            {
+                return ResponseEntity.ok(credential.get().getType());
+            }
+            else
+            {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found for the provided token");
+            }
+        }
+        else
+        {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Token not found");
+        }
+    }
+
 }
