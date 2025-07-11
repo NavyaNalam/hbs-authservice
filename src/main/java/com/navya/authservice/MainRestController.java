@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
 import java.util.Optional;
+import java.util.UUID;
 
 
 @RestController
@@ -49,9 +50,9 @@ public class MainRestController
         {
             logger.info("Login Success for the User: {}", extractedCredential.getPhone());
 
-            String tokenValue = jwtUtil.generateToken(extractedCredential.getPhone(), extractedCredential.getType());
+            //String tokenValue = jwtUtil.generateToken(extractedCredential.getPhone(), extractedCredential.getType());
 
-            //int tokenValue = new Random().nextInt(1000000000);
+            String tokenValue = UUID.randomUUID().toString();
 
             Token token = new Token();
             token.setPhone(credentialLoginView.getPhone());
